@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import { useNavigate } from "react-router";
 import useFetch from "use-http";
 import * as yup from 'yup';
 
@@ -26,12 +27,14 @@ const initialValues = {
 const Login = () => {
 
 const {post, response}=useFetch()
+const navigate = useNavigate();
 
 
     const onSubmit = async(values) => {
        await post("/api/user/login",values)
        if (response.ok){
            localStorage.setItem(response.data.accessToken)
+           navigate("/",{replace:true})
        }
     
 
