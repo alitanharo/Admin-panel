@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CreateProduct from "../pages/CreateProduct";
 import CreateUser from "../pages/CreateUser";
 import Dashboard from "../pages/Dashboard";
 
@@ -14,6 +15,7 @@ const MainRouter = () => {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="user/create" element={<CreateUser />} />
                 <Route path="user/all" element={<UserList />} />
+                <Route path="product/create" element={<CreateProduct />} />
             </Route>
 
         </Routes>

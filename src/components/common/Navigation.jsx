@@ -11,7 +11,14 @@ import {NavLink} from "react-router-dom"
         {title:"Users List", access:"user:list" , path : "/user/all"}
     ]
 
-    }
+    },
+      {
+         title: "Create Product", access: "product:create", subMenu: [
+            { title: "Create product", access: "product:create", path: "/product/create" }
+         
+         ]
+
+      }
    ]
    
    
