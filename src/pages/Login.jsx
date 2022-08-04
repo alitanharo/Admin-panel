@@ -1,7 +1,9 @@
 import { useFormik } from "formik";
+import { useContext } from "react";
 import { useNavigate } from "react-router";
 import useFetch from "use-http";
 import * as yup from 'yup';
+import { MainContext } from "../provider/MainProvider";
 
 
 
@@ -28,12 +30,14 @@ const Login = () => {
 
 const {post, response}=useFetch()
 const navigate = useNavigate();
+const {setToken}=useContext(MainContext);
 
 
     const onSubmit = async(values) => {
        await post("/api/user/login",values)
        if (response.ok){
            localStorage.setItem(response.data.accessToken)
+           setToken(response.data.accessToken)
            navigate("/",{replace:true})
        }
     
